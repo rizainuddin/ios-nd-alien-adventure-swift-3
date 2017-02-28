@@ -10,22 +10,32 @@ extension Hero {
     
     func oldestItemFromPlanet(inventory: [UDItem], planet: String) -> UDItem? {
         let planetOfOrigin = planet
-        var itemsForAlien: UDItem?
-        var itemMaxCarbonAge = 0
-
+        var itemsForAlien = [UDItem]()
+        
         // Use historicalData to find PlanetOfOrigin: Cuni and store in a new array
         for item in inventory {
             if let planetName = item.historicalData["PlanetOfOrigin"] as? String, planetName == "\(planetOfOrigin)" {
-                print("The planetName is \(planetName)")
-                if let itemCarbonAge = item.historicalData["CarbonAge"] as? Int, itemCarbonAge >= itemMaxCarbonAge {
-                    print("The carbonAge is \(itemCarbonAge)")
+                itemsForAlien.append(item)
+            }
+        }
+        
+        // Use historicalData to find the oldest CarbonAge from Array
+        // Return the oldest item to Alien
+        var itemMaxCarbonAge = 0
+        var oldestItemForAlien: UDItem?
+        for item in itemsForAlien {
+            if let itemCarbonAge = item.historicalData["CarbonAge"] as? Int {
+                if itemCarbonAge >= itemMaxCarbonAge {
                     itemMaxCarbonAge = itemCarbonAge
+                    itemsForAlien.remove(at: 0)
+                    print("The maximum age is \(itemMaxCarbonAge)") // Test age is iterating in loop
                 }
             }
-            itemsForAlien = item
-            print("The item handed over to Alien: \(itemsForAlien)")
-            return itemsForAlien
+            oldestItemForAlien = item
+            return oldestItemForAlien
         }
+        
+        print("Number of itemsForAlien in \(itemsForAlien.count)") // Test number of items
         return nil
     }
     
