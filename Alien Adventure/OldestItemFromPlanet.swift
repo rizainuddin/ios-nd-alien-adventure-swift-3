@@ -30,13 +30,10 @@ extension Hero {
                     itemsForAlien.remove(at: 0)
                     print("The maximum age is \(itemMaxCarbonAge)") // Test age is iterating in loop
                 }
-            }
             oldestItemForAlien = item
-            return oldestItemForAlien
+            }
         }
-        
-        print("Number of itemsForAlien in \(itemsForAlien.count)") // Test number of items
-        return nil
+        return oldestItemForAlien
     }
     
 }
