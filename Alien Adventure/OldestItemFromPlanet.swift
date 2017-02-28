@@ -22,21 +22,20 @@ extension Hero {
         // Use historicalData to find the oldest CarbonAge from Array
         // Return the oldest item to Alien
         var itemMaxCarbonAge = 0
+        var oldestItemForAlien: UDItem?
         for item in itemsForAlien {
             if let itemCarbonAge = item.historicalData["CarbonAge"] as? Int {
                 if itemCarbonAge >= itemMaxCarbonAge {
                     itemMaxCarbonAge = itemCarbonAge
                     itemsForAlien.remove(at: 0)
                     print("The maximum age is \(itemMaxCarbonAge)") // Test age is iterating in loop
-                } else {
-                    return oldestItemForAlien
                 }
             }
+            oldestItemForAlien = item
+            return oldestItemForAlien
         }
         
         print("Number of itemsForAlien in \(itemsForAlien.count)") // Test number of items
-        
-        
         return nil
     }
     
