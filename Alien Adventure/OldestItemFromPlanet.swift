@@ -28,7 +28,7 @@ extension Hero {
                 if itemCarbonAge >= itemMaxCarbonAge {
                     itemMaxCarbonAge = itemCarbonAge
                     itemsForAlien.remove(at: 0)
-                    print("The maximum age is \(itemMaxCarbonAge)") // Test age is iterating in loop
+//                    print("The maximum age is \(itemMaxCarbonAge)") // Test age is iterating in loop
                 }
             oldestItemForAlien = item
             }
