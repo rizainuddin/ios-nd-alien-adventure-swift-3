@@ -16,14 +16,14 @@ extension Hero {
         // added some print statements so that there are no warnings for 
         // unused variables 😀.
         
-        print("The encrypted message is \(encryptedString)") // yhmoexu
+//        print("The encrypted message is \(encryptedString)") // yhmoexu
         
         var key: UInt8
         key = 0 //If encryptedString is 0 return 0
         
         for x in UInt8.min..<UInt8.max { //Loop to check possible values of UInt8
             
-            print(x)
+//            print(x)
             
             var decrypted: [UInt8]
             decrypted = [UInt8]() //Empty array to store each decrypted value
@@ -31,15 +31,15 @@ extension Hero {
             for character in encryptedString { //Loop each UInt8 encryptedString
                 // ADD CODE: perform decryption
                 
-                print("Character in \(encryptedString) : \(character)")
+//                print("Character in \(encryptedString) : \(character)")
                 
                 let performDecryption = character ^ x
                 decrypted.append(performDecryption)
                 
-                print("Characters decrypted: \(performDecryption)")
+//                print("Characters decrypted: \(performDecryption)")
             }
             
-            print("Decrypted values: \(decrypted)")
+//            print("Decrypted values: \(decrypted)")
             
             if let decryptedString = String(bytes: decrypted,
                 encoding: String.Encoding.utf8), decryptedString == "udacity" {
@@ -47,7 +47,7 @@ extension Hero {
                 key = x
             }
             
-            print("Key values: \(key)")
+//            print("Key values: \(key)")
         }
         
         return key
