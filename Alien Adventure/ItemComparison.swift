@@ -10,8 +10,8 @@ import Foundation
 
 func <(lhs: UDItem, rhs: UDItem) -> Bool {
     
-    print("Left hand side: \(lhs)")
-    print("Right hand side: \(rhs)")
+//    print("Left hand side: \(lhs)")
+//    print("Right hand side: \(rhs)")
     
     return (lhs.rarity.rawValue <= rhs.rarity.rawValue) && (lhs.baseValue < rhs.baseValue)
 }
